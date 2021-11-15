@@ -4,6 +4,6 @@ COPY /build/libs/anzchallenge-*.jar /opt/apps/anzchallenge/
 
 WORKDIR /opt/apps/anzchallenge
 
-EXPOSE 80:80
+EXPOSE 8080:80
 
 CMD java -jar anzchallenge-1.0.0.jar
