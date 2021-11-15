@@ -4,4 +4,4 @@ services:
     container_name: anzchallenge
     image: 621255284514.dkr.ecr.ap-southeast-2.amazonaws.com/mydockerrepo:latest
     ports:
-      - "8080:80"
+      - "8085:8085"
