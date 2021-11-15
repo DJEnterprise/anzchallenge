@@ -2,7 +2,7 @@ FROM openjdk:9
 
 EXPOSE 8080/tcp
 
-RUN adduser --system --home-dir /opt/apps anz
+RUN adduser --system --home /opt/apps/anzchallenge anz
 
 USER anz
 
