@@ -1,6 +1,6 @@
 FROM openjdk:9
 
-EXPOSE 80/tcp
+EXPOSE 8085/tcp
 
 RUN adduser --system --home /opt/apps/anzchallenge anz
 
