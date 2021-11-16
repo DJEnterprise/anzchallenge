@@ -13,7 +13,7 @@ public class WelcomeController {
 	private final AtomicLong counter = new AtomicLong();
 	private final String version = "1.0.0";
 	//@Value("${version}")
-	private final String build_sha = "asdf342349182343123123a";
+	private final String build_sha = "asdf34234";
 	private final String description = "pre-interview technical test";
 
 

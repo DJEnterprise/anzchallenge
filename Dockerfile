@@ -10,4 +10,6 @@ COPY /build/libs/anzchallenge-*.jar /opt/apps/anzchallenge/
 
 WORKDIR /opt/apps/anzchallenge
 
-CMD java -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+PrintStringDeduplicationStatistics -Xms2g -Xmx4g -jar anzchallenge-1.0.0.jar > anzchallenge.log 2>&1
+CMD java -Xms128m -Xmx256m -jar anzchallenge-1.0.0.jar > anzchallenge.log
+
+#CMD java -jar anzchallenge-1.0.0.jar

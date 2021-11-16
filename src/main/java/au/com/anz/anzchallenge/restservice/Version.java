@@ -20,7 +20,7 @@ public class Version {
 		return build_sha;
 	}
 
-	public String description() {
+	public String getdescription() {
 		return description;
 	}
 
