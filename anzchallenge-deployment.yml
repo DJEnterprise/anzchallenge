@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anzchallenge
+  namespace: default
+  labels:
+    app: anzchallenge
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: anzchallenge
+  template:
+    metadata:
+      labels:
+        app: anzchallenge
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+                - arm64
+      containers:
+      - name: anzchallenge
+        image: 621255284514.dkr.ecr.ap-southeast-2.amazonaws.com/mydockerrepo:latest
+        ports:
+        - name: http
+          containerPort: 8085
+        imagePullPolicy: Always
+      nodeSelector:
+        kubernetes.io/os: linux
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-targets: /
+  name: anzchallengeingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /welcome
+        pathType: Prefix
+        backend:
+          service:
+              name: anzchallenge
+              port:
+                number: 8085
