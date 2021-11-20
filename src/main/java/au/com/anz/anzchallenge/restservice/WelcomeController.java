@@ -14,7 +14,7 @@ public class WelcomeController {
 	private final String version = "1.0.0";
 	//@Value("${version}")
 	private final String build_sha = "asdf34234";
-	private final String description = "pre-interview technical test";
+	private final String description = "pre-interview technical test update";
 
 
 	@GetMapping("/welcome")
