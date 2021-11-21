@@ -7,9 +7,9 @@ Requirements
 ------------
 
 Java - version 1.8
-Gradle 
+Java - version 11 required for sonarqube code analysis 
 
-Building
+Build
 ---------
 
 ./gradlew build
