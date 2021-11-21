@@ -1,21 +1,29 @@
 package au.com.anz.anzchallenge.restservice;
 
 import java.util.concurrent.atomic.AtomicLong;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 public class WelcomeController {
 
 	private static final String template = "Hello, Welcome to ANZChallenge App";
 	private final AtomicLong counter = new AtomicLong();
-	private final String version = "1.0.0";
-	//@Value("${version}")
-	private final String build_sha = "asdf34234";
-	private final String description = "pre-interview technical test-checking docker image version";
+	
+	@Value("${application.build_sha}")
+    private String build_sha;
 
+	@Value("${application.version}")
+    private String version;
+
+	@Value("${application.description}")
+    private String description;
+	
 
 	@GetMapping("/welcome")
 	public Welcome welcome() {
